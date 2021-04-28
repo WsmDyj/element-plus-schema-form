@@ -7,12 +7,14 @@ export default defineConfig({
   build: {
     target: 'es2015',
     cssCodeSplit: false,
-    // rollupOptions: {
-    //   input: {
-    //     doc: resolve(__dirname, 'index.html'),
-    //     mobile: resolve(__dirname, 'demo.html')
-    //   }
-    // }
+    terserOptions: {
+      compress: {
+        keep_infinity: true,
+        drop_console: true
+      }
+    },
+    brotliSize: false,
+    chunkSizeWarningLimit: 1500
   },
   css: {
     preprocessorOptions: {
