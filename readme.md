@@ -47,7 +47,7 @@ export default defineComponent({
 - `需要使用 register 注册组件才能拿到内部的方法`
 - `或者直接通过组件的 ref 也可拿到内部的方法`
 
-````ts
+```ts
 <template>
   <SchemaForm @register=register />
 </template>
@@ -72,8 +72,11 @@ export default defineComponent({
   }
 })
 </script>
+```
 
-## 示例
+## 组件示例
+
+packages/schema-form
 
 **运行示例**
 
@@ -83,7 +86,7 @@ npm install
 
 npm run dev
 
-````
+```
 
 ## 示例项目
 
