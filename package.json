@@ -1,14 +1,27 @@
 {
   "name": "element-plus-schema-form",
+  "description": "A Vue3 component for building Web forms from JSON Schema.",
   "version": "0.0.1",
+  "author": "label-fe",
   "main": "lib/index.umd.js",
   "module": "lib/index.es.js",
   "style": "lib/style.css",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "vite",
+    "element-plus",
+    "scheme-form"
+  ],
   "files": [
     "lib",
     "src",
     "packages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WsmDyj/element-plus-schema-form.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
