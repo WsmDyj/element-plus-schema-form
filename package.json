@@ -1,0 +1,37 @@
+{
+  "name": "element-plus-schema-form",
+  "version": "0.0.1",
+  "main": "lib/index.umd.js",
+  "module": "lib/index.es.js",
+  "style": "lib/style.css",
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "npm run build && vite preview",
+    "lib": "rimraf ./lib && vite build --config vite.config.build.js",
+    "pub": "npm run uv && npm run lib && npm publish",
+    "uv": "node ./script/update.version.js"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vitejs/plugin-vue-jsx": "^1.1.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vueuse/core": "^4.9.0",
+    "element-plus": "^1.0.2-beta.41",
+    "less": "^4.1.1",
+    "lodash-es": "^4.17.21",
+    "vite": "^2.2.3",
+    "vite-plugin-imp": "^2.0.7",
+    "vite-plugin-style-import": "^0.10.0",
+    "vue-router": "^4.0.6",
+    "vuepress": "^1.8.2"
+  }
+}
