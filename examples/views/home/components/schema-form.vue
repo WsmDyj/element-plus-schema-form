@@ -648,7 +648,8 @@ export default defineComponent({
   }
 }
 .schema-main {
-  margin: 20px 0;
+  flex: 1;
+  margin: 20px 0 20px 20px;
 }
 .mb-20 {
   margin-bottom: 20px;

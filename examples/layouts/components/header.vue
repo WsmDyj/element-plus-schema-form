@@ -8,10 +8,15 @@
       />
      <span class="nav-text">Schema-Form</span>
     </div>
-    <el-tabs v-model="curRoute" @tab-click="onChange">
-      <el-tab-pane label="示例" name="/"></el-tab-pane>
-      <el-tab-pane label="文档" name="/document"></el-tab-pane>
-    </el-tabs>
+    <div class="header-opt">
+      <el-tabs v-model="curRoute" @tab-click="onChange">
+        <el-tab-pane label="示例" name="/"></el-tab-pane>
+        <el-tab-pane label="文档" name="/document"></el-tab-pane>
+      </el-tabs>
+      <a href="https://github.com/WsmDyj/element-plus-schema-form" target="view_window" class="title-img">
+        <img class="github" src="https://img12.360buyimg.com/imagetools/jfs/t1/177478/17/1372/1301/60890360E47187698/649386c10eef86f4.png" alt="" srcset="">
+      </a>
+    </div>
   </section>
 </template>
 <script>
@@ -21,14 +26,28 @@ export default defineComponent({
   setup () {
     const router = useRouter()
     const curRoute = ref('/')
-    function onChange () {
-      router.push(`${unref(curRoute)}`)
+    function onChange (e) {
+      router.push(`.${unref(curRoute)}`)
     }
     return { curRoute, onChange }
   }
 })
 </script>
 <style lang="less" scoped>
+.title-img {
+  width: 60px;
+  height: 65px;
+  margin-left: 35px;
+  vertical-align: sub
+}
+.github {
+  width: 20px;
+  height: 20px;
+}
+.header-opt {
+  display: flex;
+  align-items: center;
+}
 .page-header {
   display: flex;
   justify-content: space-between;

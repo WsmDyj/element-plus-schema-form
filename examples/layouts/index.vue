@@ -24,15 +24,19 @@ export default defineComponent({
 </script>
 
 <style lang="less">
+html, body {
+  padding: 0;margin: 0;
+}
 .el-header {
   line-height: 60px;
   padding: 0 5%;
+  height: 60px;
   border-bottom: 1px solid #e9ebf5;
 }
 .el-tabs__nav-wrap::after {
   display: none;
 }
 .el-main {
-  padding: 0px;
+  padding: 0;
 }
 </style>
