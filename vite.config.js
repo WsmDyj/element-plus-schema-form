@@ -4,6 +4,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import styleImport from 'vite-plugin-style-import'
 const path = require('path')
 export default defineConfig({
+  base: './',
+  root: process.cwd(),
   build: {
     target: 'es2015',
     cssCodeSplit: false,
