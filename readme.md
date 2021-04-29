@@ -76,7 +76,7 @@ export default defineComponent({
 
 ## 组件示例
 
-packages/schema-form
+> packages/schema-form
 
 **运行示例**
 
