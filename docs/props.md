@@ -1,6 +1,6 @@
 ## FormSchema
 
-> 除以下参数外，官方文档内的 props 也都支持，具体可以参考 [element form](https://element-plus.org/#/zh-CN/component/form)
+> 除以下参数外，官方文档内的 props 也都支持，具体可以参考 [element-plus form](https://element-plus.org/#/zh-CN/component/form)
 
 | 属性                | 类型                  | 说明                                     |
 | ------------------- | --------------------- | ---------------------------------------- |
