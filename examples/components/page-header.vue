@@ -34,7 +34,7 @@ export default defineComponent({
       router.push(unref(curRoute))
     }
     onMounted(() => {
-      curRoute.value = localStorage.getItem('curRoute') || 'example'
+      curRoute.value = localStorage.getItem('curRoute') || 'explain'
     })
     return { curRoute, onChange }
   }
