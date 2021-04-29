@@ -1,0 +1,1 @@
+import{o as l,c as e,aE as s,aO as o}from"./vendor.ec2158cc.js";const n={class:"markdown-body"},a=s("h2",null,"element-plus-schema-form",-1),r=s("p",null,[o("对 "),s("strong",null,"element-plus"),o(" 的 form 组件进行封装，扩展一些常用的功能")],-1),u=s("br",null,null,-1),m={expose:[],setup:s=>(s,o)=>(l(),e("div",n,[a,r,u]))};export default m;
