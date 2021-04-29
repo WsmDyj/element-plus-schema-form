@@ -1,0 +1,60 @@
+{
+  "header": [
+    {
+      "name": "explain",
+      "cName": "文档",
+      "path": "/explain"
+    },
+    {
+      "name": "example",
+      "cName": "示例",
+      "path": "/example"
+    }
+  ],
+  "docs": {
+    "name": "指南",
+    "packages": [
+      {
+        "name": "explain",
+        "cName": "介绍",
+        "show": true
+      },
+      {
+        "name": "start",
+        "cName": "快速上手",
+        "show": true
+      },
+      {
+        "name": "https://github.com/WsmDyj/element-plus-schema-form",
+        "cName": "更新日志",
+        "show": true,
+        "isLink": true
+      }
+    ]
+  },
+  "nav": [
+    {
+      "name": "组件",
+      "packages": [
+        {
+          "name": "useForm",
+          "sort": 1,
+          "cName": "useForm",
+          "show": true
+        },
+        {
+          "name": "methods",
+          "sort": 2,
+          "cName": "方法",
+          "show": true
+        },
+        {
+          "name": "props",
+          "sort": 2,
+          "cName": "参数名",
+          "show": true
+        }
+      ]
+    }
+  ]
+}

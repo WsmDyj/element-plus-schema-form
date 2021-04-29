@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import styleImport from 'vite-plugin-style-import'
-const path = require('path')
+import Markdown from 'vite-plugin-md'
+
 export default defineConfig({
   base: './',
   root: process.cwd(),
@@ -26,8 +27,11 @@ export default defineConfig({
     }
   },
   plugins: [
-    vue(),
+    vue({
+      include: [/\.vue$/, /\.md$/]
+    }),
     vueJsx(),
+    Markdown(),
     styleImport({
       libs: [
         {

@@ -1,18 +1,20 @@
 <template>
   <el-container class="schema-container">
-    <el-aside class="schema-aside" width="200px">
-      <el-switch class="mb-20" active-text="显示操作按钮" v-model="showActionButtonGroup" @change="onChange" />
-      <el-switch class="mb-20" active-text="显示重置按钮" v-model="showResetButton" @change="onChange" />
-      <el-switch class="mb-20" active-text="显示提交按钮" v-model="showSubmitButton" @change="onChange" />
-      <el-button class="mb-20" @click="setProps({ submitButtonOptions: { loading: true, text: '加载中' }})">修改提交按钮</el-button>
-      <el-button class="mb-20" @click="setProps({ resetButtonOptions: { text: '取消' }})">修改重置按钮</el-button>
-      <el-button class="mb-20" @click="setProps({ textAlign: 'right' })">修改按钮位置</el-button>
-      <el-button class="mb-20" @click="onDisplay">回显 字段1</el-button>
-      <el-button class="mb-20" @click="validateForm">手动校验表单</el-button>
-      <el-button class="mb-20" @click="resetValidate">清空校验信息</el-button>
-      <el-button class="mb-20" @click="deleteField">删除 字段1</el-button>
-      <el-button class="mb-20" @click="appendField"> 往字段1后面插入字段2 </el-button>
-    </el-aside>
+    <div class="schema-aside">
+      <div class="schema-aside-opt">
+        <el-switch class="mb-20" active-text="显示操作按钮" v-model="showActionButtonGroup" @change="onChange" />
+        <el-switch class="mb-20" active-text="显示重置按钮" v-model="showResetButton" @change="onChange" />
+        <el-switch class="mb-20" active-text="显示提交按钮" v-model="showSubmitButton" @change="onChange" />
+        <el-button class="mb-20" @click="setProps({ submitButtonOptions: { loading: true, text: '加载中' }})">修改提交按钮</el-button>
+        <el-button class="mb-20" @click="setProps({ resetButtonOptions: { text: '取消' }})">修改重置按钮</el-button>
+        <el-button class="mb-20" @click="setProps({ textAlign: 'right' })">修改按钮位置</el-button>
+        <el-button class="mb-20" @click="onDisplay">回显 字段1</el-button>
+        <el-button class="mb-20" @click="validateForm">手动校验表单</el-button>
+        <el-button class="mb-20" @click="resetValidate">清空校验信息</el-button>
+        <el-button class="mb-20" @click="deleteField">删除 字段1</el-button>
+        <el-button class="mb-20" @click="appendField"> 往字段1后面插入字段2 </el-button>
+      </div>
+    </div>
     <el-main class="schema-main">
       <SchemaForm
         label-position="right"
@@ -629,29 +631,33 @@ export default defineComponent({
 })
 </script>
 <style lang="less" scoped>
-.schema-container {
-  height: calc(100vh - 60px);
-  padding: 0px 5%;
-}
 .schema-alert {
   margin: 10px 0 20px 0;
 }
 .schema-aside {
+  position: fixed;
+  left: 0;
   height: 100%;
-  padding: 30px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-right: 1px solid #e9ebf5;
+  z-index: 1;
+  background: #fff;
+  width: 290px;
+  border-right: 1px solid #eee;
+  overflow: auto;
+  padding-left: 35px;
+  &-opt {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .el-button+.el-button {
     margin-left: 0px;
   }
 }
 .schema-main {
-  flex: 1;
-  margin: 20px 0 20px 20px;
+  margin: 80px 30px 20px 310px;
 }
 .mb-20 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 </style>
