@@ -21,6 +21,10 @@ const router = createRouter({
       redirect: '/explain'
     },
     {
+      path: '/steps',
+      component: () => import('./views/steps/index.vue')
+    },
+    {
       path: '/example',
       component: () => import('./views/home/index.vue')
     },

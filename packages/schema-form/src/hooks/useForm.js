@@ -43,9 +43,9 @@ export function useForm (props) {
     getFieldsValue: () => {
       return unref(formRef).getFieldsValue
     },
-    validate: async (nameList) => {
+    validate: async () => {
       const form = await getForm()
-      return form.validate(nameList)
+      return form.validate()
     },
     clearValidate: async (name) => {
       const form = await getForm()

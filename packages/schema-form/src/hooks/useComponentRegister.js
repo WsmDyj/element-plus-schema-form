@@ -6,7 +6,7 @@ import { add, del } from '../componentMap'
 
 export function useComponentRegister (compName, comp) {
   add(compName, comp)
-  tryOnUnmounted(() => {
+  tryOnUnmounted(() => { // 页面卸载删除组建
     del(compName)
   })
 }

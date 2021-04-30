@@ -70,14 +70,15 @@ export function useFormEvents ({
 
   // 校验表单
   async function validate () {
-    return await unref(formElRef).validate()
+    const valid = await unref(formElRef).validate()
+    return valid ? handleFormValues(formModel) : false
   }
 
   // 清理校验规则
   async function clearValidate (name) {
     await unref(formElRef).clearValidate(name)
   }
-
+    // 校验部分表单
   async function validateFields (nameList) {
     return await unref(formElRef).validateField(nameList)
   }
