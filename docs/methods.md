@@ -36,12 +36,6 @@
 
  <br/>
 
-**scrollToField**
-
-说明: 滚动到对应字段位置
-
- <br/>
-
 **clearValidate**
 
 说明: 清空校验

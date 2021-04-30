@@ -25,10 +25,9 @@
         "show": true
       },
       {
-        "name": "https://github.com/WsmDyj/element-plus-schema-form",
+        "name": "book",
         "cName": "更新日志",
-        "show": true,
-        "isLink": true
+        "show": true
       }
     ]
   },
@@ -45,7 +44,7 @@
         {
           "name": "methods",
           "sort": 2,
-          "cName": "方法",
+          "cName": "方法名",
           "show": true
         },
         {

@@ -31,7 +31,13 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/]
     }),
     vueJsx(),
-    Markdown(),
+    Markdown({
+      markdownItOptions: {
+        html: true,
+        linkify: true,
+        typographer: true,
+      }
+    }),
     styleImport({
       libs: [
         {

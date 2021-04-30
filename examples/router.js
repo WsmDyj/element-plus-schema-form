@@ -25,6 +25,10 @@ const router = createRouter({
       component: () => import('./views/steps/index.vue')
     },
     {
+      path: '/queryFilter',
+      component: () => import('./views/queryFilter/index.vue')
+    },
+    {
       path: '/example',
       component: () => import('./views/home/index.vue')
     },
