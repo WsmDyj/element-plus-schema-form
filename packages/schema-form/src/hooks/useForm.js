@@ -41,7 +41,13 @@ export function useForm (props) {
       form.setProps(formProps)
     },
     getFieldsValue: () => {
-      return unref(formRef).getFieldsValue
+      return unref(formRef).getFieldsValue()
+    },
+    resetFields: () => {
+      return unref(formRef).resetFields()
+    },
+    validateFields: (fields) => {
+      return unref(formRef).validateFields(fields)
     },
     validate: async () => {
       const form = await getForm()

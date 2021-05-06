@@ -44,7 +44,7 @@
         {
           "name": "methods",
           "sort": 2,
-          "cName": "方法名",
+          "cName": "函数名",
           "show": true
         },
         {

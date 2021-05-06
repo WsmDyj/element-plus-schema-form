@@ -1,61 +1,98 @@
 ## Methods
 
-**getFieldsValue**
+> 方法具体的案例可查看 [基本表单](http://localhost:3000/#/example) [源码地址](https://github.com/WsmDyj/element-plus-schema-form/blob/main/examples/views/home/components/schema-form.vue)
 
-说明: 获取表单值
+#### 1、getFieldsValue
 
- <br/>
+说明: 获取整个表单值，初始化为 **{}**，需要用户输入才能生成具体的 field 字段
 
-**setFieldsValue**
+```
+const [register, { getFieldsValue }] = useForm({ schemas })
+const res = await getFieldsValue()
+```
 
-说明: 设置表单字段值
+#### 2、setFieldsValue
 
-<br/>
+说明: 设置表单字段值，常用于数据的回显
 
-**resetFields**
+```
+const [register, { setFieldsValue }] = useForm({ schemas })
+let defVal = { field1: '我是回显值' }
+setFieldsValue(defVal)
+```
 
-说明: 重置表单值
+#### 3、resetFields
 
-<br/>
+说明: 重置表单值，默认的值不会被重置
 
-**validateFields**
+```
+const [register, { resetFields }] = useForm({ schemas })
+setFieldsValue(defVal)
+```
 
-说明: 校验指定表单项
+#### 4、validateFields
 
- <br/>
+说明: 校验指定表单项，传入 field 对应的字段，数组形式
 
-**validate**
+```
+const [register, { validateFields }] = useForm({ schemas })
+validateFields(['field18'])
+```
 
-说明: 校验表单
+#### 5、validate
 
- <br/>
+说明: 校验表单，返回表单项的表单值
 
-**submit**
+```
+const [register, { validate }] = useForm({ schemas })
+await validate()
+```
+
+#### 6、submit
 
 说明: 提交表单
 
- <br/>
+```
+const [register, { submit }] = useForm({ schemas })
+await submit()
+```
 
-**clearValidate**
+#### 7、clearValidate
 
-说明: 清空校验
+说明: 清空表单校验规则
 
- <br/>
+```
+const [register, { clearValidate }] = useForm({ schemas })
+await clearValidate()
+```
 
-**setProps**
+#### 8、setProps
 
-设置表单的 props 可以直接在标签上传递，也可以使用 setProps，或者初始化直接写 useForm(props)
+说明: 设置表单的 props 可以直接在标签上传递，也可以使用 setProps，或者初始化直接写 useForm(props)
 
-说明: 设置表单 Props
+```
+const [register, { setProps }] = useForm({ schemas })
+await setProps({ textAlign: 'right' })
+```
 
- <br/>
-
-**removeSchemaByFiled**
+#### 9、removeSchemaByFiled
 
 说明: 根据 field 删除 Schema
 
- <br/>
+```
+const [register, { removeSchemaByFiled }] = useForm({ schemas })
+await removeSchemaByFiled('field1')
+```
 
-**appendSchemaByField**
+#### 10、appendSchemaByField
 
-说明: 插入到指定 filed 后面，如果没传指定 field，则插入到最后.当 first=true 时插入到第一个位置
+说明: 插入到指定 filed 后面，如果没传指定 field，则插入到最后。当 first=true 时插入到第一个位置
+
+```
+const [register, { appendSchemaByField }] = useForm({ schemas })
+await appendSchemaByField({
+  field: 'field10',
+  label: '字段2',
+  component: 'Input'
+}, 'field1')
+```

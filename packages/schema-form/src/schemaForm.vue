@@ -67,6 +67,7 @@ export default defineComponent({
       setFieldsValue,
       handleSubmit,
       validate,
+      validateFields,
       clearValidate,
       removeSchemaByFiled,
       appendSchemaByField,
@@ -125,8 +126,10 @@ export default defineComponent({
       getFieldsValue,
       setProps,
       validate,
+      validateFields,
       clearValidate,
       setFieldsValue,
+      resetFields,
       removeSchemaByFiled,
       appendSchemaByField,
       submit: handleSubmit

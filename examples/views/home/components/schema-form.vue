@@ -8,7 +8,10 @@
         <el-button class="mb-20" @click="setProps({ submitButtonOptions: { loading: true, text: '加载中' }})">修改提交按钮</el-button>
         <el-button class="mb-20" @click="setProps({ resetButtonOptions: { text: '取消' }})">修改重置按钮</el-button>
         <el-button class="mb-20" @click="setProps({ textAlign: 'right' })">修改按钮位置</el-button>
+        <el-button class="mb-20" @click="onGetFormModal">获取表单值</el-button>
         <el-button class="mb-20" @click="onDisplay">回显 字段1</el-button>
+        <el-button class="mb-20" @click="onResetFields">重置表单</el-button>
+        <!-- <el-button class="mb-20" @click="onValidateFields">校验自定义校验规则</el-button> -->
         <el-button class="mb-20" @click="validateForm">手动校验表单</el-button>
         <el-button class="mb-20" @click="resetValidate">清空校验信息</el-button>
         <el-button class="mb-20" @click="deleteField">删除 字段1</el-button>
@@ -519,8 +522,11 @@ export default defineComponent({
       setProps,
       appendSchemaByField,
       removeSchemaByFiled,
+      getFieldsValue,
       setFieldsValue,
+      resetFields,
       validate,
+      validateFields,
       clearValidate
     }] = useForm({ schemas })
     const opt = reactive({
@@ -589,6 +595,10 @@ export default defineComponent({
         console.log('not passing', error)
       }
     }
+    async function onGetFormModal () {
+      const res = await getFieldsValue()
+      console.log(res)
+    }
     async function resetValidate () {
       clearValidate()
     }
@@ -610,6 +620,14 @@ export default defineComponent({
       )
     }
 
+    async function onResetFields () {
+      await resetFields()
+    }
+
+    async function onValidateFields () {
+      await validateFields(['field18'])
+    }
+
     return {
       schemas,
       formElRef,
@@ -625,7 +643,10 @@ export default defineComponent({
       validateForm,
       add,
       del,
-      register
+      onGetFormModal,
+      register,
+      onResetFields,
+      onValidateFields
     }
   }
 })

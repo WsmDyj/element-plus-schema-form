@@ -14,7 +14,7 @@
         <el-tab-pane label="文档" name="explain"></el-tab-pane>
         <el-tab-pane label="基本表单" name="example"></el-tab-pane>
         <el-tab-pane label="分步表单" name="steps"></el-tab-pane>
-        <el-tab-pane label="筛选表单" name="queryFilter"></el-tab-pane>
+        <!-- <el-tab-pane label="筛选表单" name="queryFilter"></el-tab-pane> -->
       </el-tabs>
       <a href="https://github.com/WsmDyj/element-plus-schema-form" target="view_window">
         <img class="github-icon" src="https://img12.360buyimg.com/imagetools/jfs/t1/177478/17/1372/1301/60890360E47187698/649386c10eef86f4.png" alt="" srcset="">

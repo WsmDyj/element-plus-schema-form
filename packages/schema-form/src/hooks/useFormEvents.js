@@ -62,10 +62,13 @@ export function useFormEvents ({
     schemaRef.value = schemaList
   }
 
+  /**
+   * @description: 获取表单值
+   */
   function getFieldsValue () {
     const formEl = unref(formElRef)
     if (!formEl) return {}
-    return handleFormValues(toRaw(unref(formModel)))
+    return handleFormValues(formModel)
   }
 
   // 校验表单
@@ -80,6 +83,7 @@ export function useFormEvents ({
   }
     // 校验部分表单
   async function validateFields (nameList) {
+    console.log(nameList)
     return await unref(formElRef).validateField(nameList)
   }
 
