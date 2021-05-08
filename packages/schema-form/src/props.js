@@ -10,6 +10,10 @@ export const basicProps = {
     type: Array,
     default: () => []
   },
+  rules: {
+    type: Object,
+    default: () => {},
+  },
   // 显示重置按钮
   showResetButton: VueTypes.bool.def(true),
   // 重置按钮属性
@@ -29,7 +33,6 @@ export const basicProps = {
   // form自带的一些属性
   labelPosition: oneOf(['right', 'left', 'top']).def('right'),
   labelWidth: VueTypes.string,
-  rules: arrayOf(object()),
   inline: VueTypes.bool.def(false),
   size: oneOf(['', 'medium', 'small', 'mini']).def('medium'),
 }

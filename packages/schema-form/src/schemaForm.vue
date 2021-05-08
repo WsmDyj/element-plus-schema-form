@@ -57,15 +57,15 @@ export default defineComponent({
       return baseRowStyle
     })
 
-
     const getSchema = computed(() => {
       const schemas = unref(schemaRef) || unref(getProps).schemas
+      const passRules = unref(getProps).rules
       for (const schema of schemas) {
-        const { defaultValue, component } = schema
-        // 处理日期格式 表单校验报错 field is not a string
-        // if (defaultValue && dateItemType.includes(component)) {
-        //   console.log('handle date type')
-        // }
+        const { field, rules = [] } = schema
+        // 处理表单校验规则
+        if (passRules) {
+          schema.rules = unref(getProps).rules[field] || rules
+        }
       }
       return schemas
     })

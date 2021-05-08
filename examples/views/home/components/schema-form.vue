@@ -23,6 +23,7 @@
         label-position="right"
         label-width="150px"
         @register="register"
+        :rules="rules"
         @submit="handleSubmit"
         >
         <template #f3="{ model, field }">
@@ -502,7 +503,6 @@ const schemas = [
     colProps: {
       span: 12
     },
-    required: true
   },
   {
     field: '0',
@@ -515,6 +515,12 @@ const schemas = [
     slot: 'add'
   }
 ]
+const rules = {
+  field16: [
+    { "required": true, "message": "请输入名称" },
+    { "max": 5, "message": "最多 5 个字符" }
+  ]
+}
 export default defineComponent({
   components: { SchemaForm },
   setup () {
@@ -545,7 +551,6 @@ export default defineComponent({
           colProps: {
             span: 12
           },
-          required: true
         },
         ''
       )
@@ -634,6 +639,7 @@ export default defineComponent({
       handleSubmit,
       querySearchAsync,
       setProps,
+      rules,
       deleteField,
       appendField,
       resetValidate,
