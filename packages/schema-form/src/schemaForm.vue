@@ -1,6 +1,6 @@
 <template>
-  <el-form v-bind="{ ...$attrs, ...$props }" ref="formElRef" :model="formModel">
-    <el-row v-bind="getRowWrapStyle">
+  <el-form v-bind="{ ...$attrs, ...$props, ...getProps }" ref="formElRef" :model="formModel">
+    <el-row :style="getRowWrapStyle">
       <template v-for="schema in getSchema" :key="schema.field">
         <SchemaFormItem
           :schema="schema"
@@ -16,24 +16,25 @@
           </template>
         </SchemaFormItem>
       </template>
-      <FormAction v-bind="{ ...getProps }">
+      <FormAction v-bind="{ ...getProps, ...advanceState }" @toggle-advanced="handleToggleAdvanced">
       </FormAction>
     </el-row>
   </el-form>
 </template>
 <script>
-import { defineComponent, reactive, computed, ref,unref, watch, onMounted } from 'vue'
+import { defineComponent, reactive, computed, ref,unref, watch, onMounted, toRaw } from 'vue'
 import { basicProps } from './props'
 import SchemaFormItem from './components/schemaFormItem.vue'
 import { deepMerge } from './helper'
 import { useFormValues } from './hooks/useFormValues'
 import { useFormEvents } from './hooks/useFormEvents'
 import { createFormContext } from './hooks/useFormContext'
+import { useAdvanced } from './hooks/useAdvanced'
 import FormAction from './components/FormAction.vue'
 export default defineComponent({
   components: { SchemaFormItem, FormAction },
   props: basicProps,
-  emits: ['submit', 'reset', 'register'],
+  emits: ['advanced-change', 'submit', 'reset', 'register'],
   setup (props, { emit }) {
     const formModel = reactive({})
     const schemaRef = ref(null) // 动态删除表单项
@@ -44,15 +45,38 @@ export default defineComponent({
     const getProps = computed(() => {
       return { ...props, ...unref(propsRef) }
     })
+    // 设置搜索表单的props
+    const advanceState = reactive({
+      isAdvanced: true,
+      hideAdvanceBtn: false,
+      isLoad: false,
+    })
 
     const getRowWrapStyle = computed(() => {
       const { baseRowStyle = {} } = unref(getProps)
       return baseRowStyle
     })
 
+
     const getSchema = computed(() => {
       const schemas = unref(schemaRef) || unref(getProps).schemas
+      for (const schema of schemas) {
+        const { defaultValue, component } = schema
+        // 处理日期格式 表单校验报错 field is not a string
+        // if (defaultValue && dateItemType.includes(component)) {
+        //   console.log('handle date type')
+        // }
+      }
       return schemas
+    })
+
+    const { handleToggleAdvanced } = useAdvanced({
+      advanceState,
+      emit,
+      getProps,
+      getSchema,
+      formModel,
+      defaultValueRef,
     })
 
     const {
@@ -144,10 +168,12 @@ export default defineComponent({
       formModel,
       formActionType,
       getSchema,
-      getRowWrapStyle,
+      advanceState,
+      handleToggleAdvanced,
       getProps,
       defaultValueRef,
       setFormModel,
+      getRowWrapStyle,
       ...formActionType
     }
   }

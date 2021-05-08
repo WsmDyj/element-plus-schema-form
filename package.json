@@ -30,14 +30,14 @@
     "uv": "node ./script/update.version.js"
   },
   "dependencies": {
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "element-plus": "^1.0.2-beta.37"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.2",
     "@vitejs/plugin-vue-jsx": "^1.1.3",
     "@vue/compiler-sfc": "^3.0.5",
     "@vueuse/core": "^4.9.0",
-    "element-plus": "^1.0.2-beta.41",
     "less": "^4.1.1",
     "lodash-es": "^4.17.21",
     "vite": "^2.2.3",
@@ -45,6 +45,7 @@
     "vite-plugin-md": "^0.6.3",
     "vite-plugin-style-import": "^0.10.0",
     "vue-router": "^4.0.6",
+    "vue-types": "^3.0.2",
     "vuepress": "^1.8.2"
   }
 }

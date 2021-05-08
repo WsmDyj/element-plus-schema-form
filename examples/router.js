@@ -22,11 +22,14 @@ const router = createRouter({
     },
     {
       path: '/steps',
-      component: () => import('./views/steps/index.vue')
-    },
-    {
-      path: '/queryFilter',
-      component: () => import('./views/queryFilter/index.vue')
+      component: explain,
+      children: [
+        {
+          path: '/steps',
+          name: 'steps',
+          component: () => import('./views/steps/index.vue')
+        }
+      ]
     },
     {
       path: '/example',

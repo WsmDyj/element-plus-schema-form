@@ -1,5 +1,4 @@
 <template>
-  <PageHeader />
   <div class="steps-main">
     <el-steps class="steps-center" finish-status="success" :active="active">
       <el-step title="填写转账信息"></el-step>
@@ -15,6 +14,7 @@
       />
       <Step3 :info="info" v-if="active === 3"/>
     </div>
+    <el-link class="link" type="primary" href="https://github.com/WsmDyj/element-plus-schema-form/blob/main/examples/views/steps/index.vue" target="_blank">案例代码</el-link>
   </div>
 </template>
 <script>
@@ -49,6 +49,11 @@ export default defineComponent({
 })
 </script>
 <style lang="less" scoped>
+.link {
+  position: fixed;
+  top: 100px;
+  left: 360px;
+}
 .steps-main {
   width: 100%;
   padding-top: 100px;

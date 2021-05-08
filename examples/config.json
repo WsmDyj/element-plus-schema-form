@@ -54,6 +54,22 @@
           "show": true
         }
       ]
+    },
+    {
+      "name": "扩展",
+      "packages": [
+        {
+          "name": "steps",
+          "cName": "分步表单",
+          "show": true,
+          "isLink": true
+        },
+        {
+          "name": "queryFilter",
+          "cName": "筛选表单",
+          "show": true
+        }
+      ]
     }
   ]
 }

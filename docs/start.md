@@ -30,14 +30,14 @@ const schemas = [
 
 <div class='md-component'>
   <div class='md-component-item'>
-    <SchemaForm :schemas=schemas label-position="right" label-width="70px" />
+    <SchemaForm :schemas=schemas label-width="70px" />
   </div>
 <details>
-  <summary>显示代码</summary>
+<summary>显示代码</summary>
 
 ```html
 <template>
-  <SchemaForm :schemas="schemas" label-position="right" label-width="70px" />
+  <SchemaForm :schemas="schemas" label-width="70px" />
 </template>
 <script>
   import { defineComponent } from "vue";

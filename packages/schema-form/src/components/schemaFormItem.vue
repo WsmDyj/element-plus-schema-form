@@ -143,6 +143,8 @@ export default defineComponent({
     function getShow () {
       const { ifShow, show } = props.schema
       let isShow = true, isIfShow = true
+      const { showAdvancedButton } = props.formProps
+      const itemIsAdvanced = showAdvancedButton ? isBoolean(props.schema.isAdvanced) ? props.schema.isAdvanced : true : true
       if (isBoolean(show)) {
         isShow = show
       }
@@ -152,6 +154,7 @@ export default defineComponent({
       if (isFunction(show)) {
         isShow = show(unref(getValues))
       }
+      isShow = isShow && itemIsAdvanced
       return { isShow, isIfShow }
     }
     function handleRules () {

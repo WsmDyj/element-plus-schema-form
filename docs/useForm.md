@@ -12,7 +12,7 @@ register 用于注册 useForm，如果需要使用 useForm 提供的 api，必�
 
 ```javascript
 <template>
-  <BasicForm @register="register" @submit="handleSubmit" />
+  <BasicForm @register="register" />
 </template>
 ```
 
@@ -40,7 +40,7 @@ register 用于注册 useForm，如果需要使用 useForm 提供的 api，必�
         register,
         schemas,
         handleSubmit: (values) => {
-          console.log('click search,values:' + JSON.stringify(values))
+          alert('click search,values:' + JSON.stringify(values))
         }
       }
     }

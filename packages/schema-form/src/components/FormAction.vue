@@ -16,17 +16,35 @@
       >
         {{getSubmitBtnOptions.text}}
       </el-Button>
+      <el-link
+        href="javascript:void(0)"
+        :underline="false"
+        class="options-advance"
+        v-if="showAdvancedButton && !hideAdvanceBtn"
+        @click="toggleAdvanced"
+      >
+        {{ isAdvanced ? '收取' : '展开'}}
+        <i :class="isAdvanced ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
+      </el-link>
     </el-form-item>
   </el-col>
 </template>
 <script>
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useFormContext } from '../hooks/useFormContext'
 export default defineComponent({
   props: {
     actionColOptions: {
       type: Object,
       default: () => {}
+    },
+    isAdvanced: {
+      type: Boolean,
+      default: true
+    },
+    hideAdvanceBtn: {
+      type: Boolean,
+      default: true
     },
     showActionButtonGroup: {
       type: Boolean,
@@ -35,6 +53,10 @@ export default defineComponent({
     textAlign: {
       type: String,
       default: 'left'
+    },
+    showAdvancedButton: {
+      type: Boolean,
+      default: true
     },
     showResetButton: {
       type: Boolean,
@@ -53,7 +75,8 @@ export default defineComponent({
       default: () => {}
     }
   },
-  setup (props) {
+  emits: ['toggle-advanced'],
+  setup (props, {emit}) {
     const actionColOpt = computed(() => {
       const { actionColOptions } = props
       const actionColOpt = {
@@ -67,12 +90,24 @@ export default defineComponent({
     const getResetBtnOptions = computed(() => {
       return Object.assign({ text: '重置' }, props.resetButtonOptions)
     })
+
+    function toggleAdvanced () {
+      emit('toggle-advanced')
+    }
     return {
       actionColOpt,
       getSubmitBtnOptions,
       getResetBtnOptions,
+      toggleAdvanced,
       ...useFormContext()
     }
   }
 })
 </script>
+<style lang="less" scoped>
+.options-advance {
+  padding-left: 10px;
+  cursor: default;
+
+}
+</style>

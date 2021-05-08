@@ -528,7 +528,7 @@ export default defineComponent({
       validate,
       validateFields,
       clearValidate
-    }] = useForm({ schemas })
+    }] = useForm({ schemas: schemas })
     const opt = reactive({
       showActionButtonGroup: true,
       showResetButton: true,

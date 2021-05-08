@@ -18,7 +18,7 @@
     <ol v-for="_nav in nav" :key="_nav">
       <li>{{ _nav.name }}</li>
       <ul>
-        <li  :class="{ active: isActive(_package.name) }" v-for="_package in _nav.packages" :key="_package">
+        <li :class="{ active: isActive(_package.name) }" v-for="_package in _nav.packages" :key="_package">
           <router-link v-if="_package.show" :to="_package.name">{{ _package.cName }}</router-link>
         </li>
       </ul>
@@ -77,8 +77,8 @@ export default defineComponent({
       }
       li {
         width: 100%;
-        height: 48px;
-        line-height: 48px;
+        height: 44px;
+        line-height: 44px;
         font-size: 14px;
         color: #333;
         font-weight: bold;
