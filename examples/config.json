@@ -25,9 +25,10 @@
         "show": true
       },
       {
-        "name": "book",
+        "name": "https://github.com/WsmDyj/element-plus-schema-form/releases",
         "cName": "更新日志",
-        "show": true
+        "show": true,
+        "isLink": true
       }
     ]
   },

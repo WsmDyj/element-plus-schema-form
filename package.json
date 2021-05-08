@@ -1,7 +1,7 @@
 {
   "name": "element-plus-schema-form",
   "description": "A Vue3 component for building Web forms from JSON Schema.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "label-fe",
   "main": "lib/index.umd.js",
   "module": "lib/index.es.js",
