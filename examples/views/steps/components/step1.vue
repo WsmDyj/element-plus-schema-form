@@ -1,8 +1,7 @@
 <template>
   <div class="step1">
     <div class="step1-form">
-      <SchemaForm label-position="right"
-        label-width="100px" @register="register"></SchemaForm>
+      <SchemaForm @register="register" />
     </div>
   </div>
 </template>
@@ -19,6 +18,7 @@ export default defineComponent({
     const [register, { validate }] = useForm({
       schemas: step1Schemas,
       showResetButton: false,
+      labelWidth: "100px",
       submitButtonOptions: {
         text: '下一步',
       },
@@ -42,31 +42,5 @@ export default defineComponent({
       width: 450px;
       margin: 0 auto;
     }
-
-    h3 {
-      margin: 0 0 12px;
-      font-size: 16px;
-      line-height: 32px;
-      color: #444;
-    }
-
-    h4 {
-      margin: 0 0 4px;
-      font-size: 14px;
-      line-height: 22px;
-      color: #444;
-    }
-
-    p {
-      color: #444;
-    }
-  }
-
-  .pay-select {
-    width: 20%;
-  }
-
-  .pay-input {
-    width: 70%;
   }
 </style>

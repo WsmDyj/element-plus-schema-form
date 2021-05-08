@@ -16,16 +16,18 @@
       >
         {{getSubmitBtnOptions.text}}
       </el-Button>
-      <el-link
-        href="javascript:void(0)"
+      <el-button
+        type="text"
         :underline="false"
         class="options-advance"
         v-if="showAdvancedButton && !hideAdvanceBtn"
         @click="toggleAdvanced"
       >
         {{ isAdvanced ? '收取' : '展开'}}
-        <i :class="isAdvanced ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
-      </el-link>
+        <span :class="getClass">
+          <i class="el-icon-arrow-down"></i>
+        </span>
+      </el-button>
     </el-form-item>
   </el-col>
 </template>
@@ -78,14 +80,21 @@ export default defineComponent({
   emits: ['toggle-advanced'],
   setup (props, {emit}) {
     const actionColOpt = computed(() => {
-      const { actionColOptions } = props
+      const { actionColOptions, showAdvancedButton } = props
       const actionColOpt = {
         ...actionColOptions
       }
       return actionColOpt
     })
+    const getClass = computed(() => {
+      return ['basic-arrow',
+        {
+          'basic-arrow--active': props.isAdvanced
+        }
+      ]
+    })
     const getSubmitBtnOptions = computed(() => {
-      return Object.assign({ text: '提交' }, props.submitButtonOptions)
+      return Object.assign({ text: props.showAdvancedButton ? '查询' : '提交' }, props.submitButtonOptions)
     })
     const getResetBtnOptions = computed(() => {
       return Object.assign({ text: '重置' }, props.resetButtonOptions)
@@ -99,6 +108,7 @@ export default defineComponent({
       getSubmitBtnOptions,
       getResetBtnOptions,
       toggleAdvanced,
+      getClass,
       ...useFormContext()
     }
   }
@@ -108,6 +118,15 @@ export default defineComponent({
 .options-advance {
   padding-left: 10px;
   cursor: default;
+}
+.basic-arrow {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: all 0.3s ease 0.1s;
+  transform-origin: center center;
 
+  &--active {
+    transform: rotate(180deg);
+  }
 }
 </style>

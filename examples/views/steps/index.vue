@@ -55,14 +55,13 @@ export default defineComponent({
   left: 360px;
 }
 .steps-main {
-  width: 100%;
   padding-top: 100px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 .steps-center {
-  width: 900px;
+  width: 100%;
 }
 .mt-80 {
   margin-top: 80px;

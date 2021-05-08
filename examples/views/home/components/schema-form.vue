@@ -597,7 +597,7 @@ export default defineComponent({
     }
     async function onGetFormModal () {
       const res = await getFieldsValue()
-      console.log(res)
+      alert(JSON.stringify(res))
     }
     async function resetValidate () {
       clearValidate()

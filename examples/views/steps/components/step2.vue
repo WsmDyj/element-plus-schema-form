@@ -1,7 +1,6 @@
 
 <template>
-<schema-form label-position="right"
-        label-width="100px" @register="register" />
+  <schema-form  @register="register" />
 </template>
 
 <script>
@@ -16,6 +15,7 @@ export default defineComponent({
   setup(_, {emit}) {
     const [register, { validate, setProps }] = useForm({
       schemas: step2Schemas,
+      labelWidth: '100px',
       resetButtonOptions: {
         text: '上一步',
       },
@@ -53,6 +53,3 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
-</style>

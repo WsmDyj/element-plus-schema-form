@@ -1,7 +1,10 @@
 ## 筛选表单
 
-有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。通过设置**showAdvancedButton** 为 true,开启一个筛选表单;
-设置 **autoAdvancedLine** 属性超多多少行自动折叠, 默认是 3 行, 不小于 2 行
+有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。
+
+- 通过设置 **showAdvancedButton** 为 true，开启一个筛选表单
+
+- 设置 **autoAdvancedLine** 属性超多多少行自动折叠, 默认是 3 行, 不小于 2 行
 
 <script setup>
 import { SchemaForm, useForm} from '../packages/schema-form'
@@ -12,9 +15,6 @@ const schemas = [
       label: '字段11',
       colProps: {
         span: 8,
-      },
-      componentProps: {
-        placeholder: '自定义placeholder',
       },
     },
     {
@@ -86,7 +86,7 @@ const [register] = useForm({
     showAdvancedButton: true,
     textAlign: 'right',
     autoAdvancedLine: 3,
-    labelWidth: "75px"
+    labelWidth: "70px"
   })
 </script>
 

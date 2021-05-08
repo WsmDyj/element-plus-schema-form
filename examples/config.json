@@ -68,6 +68,11 @@
           "name": "queryFilter",
           "cName": "筛选表单",
           "show": true
+        },
+        {
+          "name": "modalForm",
+          "cName": "弹窗表单",
+          "show": true
         }
       ]
     }
