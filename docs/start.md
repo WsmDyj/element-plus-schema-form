@@ -17,7 +17,7 @@ import { SchemaForm, SchemaFormItem } from 'element-plus-form-schema'
 下面是一个使用简单表单的示例，只有一个输入框
 
 <script setup>
-import {SchemaForm, useForm} from '../packages/schema-form'
+import { SchemaForm, useForm } from '../packages/schema-form'
 const schemas = [
   {
     field: 'field1',

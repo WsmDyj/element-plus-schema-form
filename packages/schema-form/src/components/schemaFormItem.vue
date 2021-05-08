@@ -21,6 +21,10 @@ export default defineComponent({
       type: Object,
       default: () => {}
     },
+    showAdvancedButton: {
+      type: Boolean,
+      default: false
+    },
     setFormModel: {
       type: Function,
       default: null
@@ -143,8 +147,7 @@ export default defineComponent({
     function getShow () {
       const { ifShow, show } = props.schema
       let isShow = true, isIfShow = true
-      const { showAdvancedButton } = props.formProps
-      const itemIsAdvanced = showAdvancedButton ? isBoolean(props.schema.isAdvanced) ? props.schema.isAdvanced : true : true
+      const itemIsAdvanced = props.formProps?.showAdvancedButton ? isBoolean(props.schema.isAdvanced) ? props.schema.isAdvanced : true : true
       if (isBoolean(show)) {
         isShow = show
       }
